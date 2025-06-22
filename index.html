@@ -147,6 +147,100 @@
             </ul>
           </li>
           <li class="nav-item"><a class="nav-link" href="#wajiblapor">Wajib Lapor</a></li>
+          <!-- Form Wajib Lapor: Penduduk Baru -->
+<section id="wajiblapor" class="section bg-light">
+  <div class="container">
+    <h2 class="mb-5">Formulir Wajib Lapor</h2>
+
+    <!-- Penduduk Baru Masuk -->
+    <div class="mb-5">
+      <h4>Penduduk Baru Masuk</h4>
+      <form action="https://formspree.io/f/xwpbrern" method="POST">
+        <div class="mb-3">
+          <label class="form-label">Nama Lengkap</label>
+          <input type="text" class="form-control" name="nama" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">NIK</label>
+          <input type="text" class="form-control" name="nik" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Asal Daerah</label>
+          <input type="text" class="form-control" name="asal" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Tanggal Datang</label>
+          <input type="date" class="form-control" name="tanggal" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Alamat Tinggal di Desa Bengel</label>
+          <textarea class="form-control" name="alamat" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Kirim Laporan</button>
+      </form>
+    </div>
+
+    <!-- Penduduk Keluar -->
+    <div class="mb-5">
+      <h4>Penduduk Keluar</h4>
+      <form action="https://formspree.io/f/xwpbrern" method="POST">
+        <div class="mb-3">
+          <label class="form-label">Nama Lengkap</label>
+          <input type="text" class="form-control" name="nama_keluar" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">NIK</label>
+          <input type="text" class="form-control" name="nik_keluar" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Alamat Asal</label>
+          <input type="text" class="form-control" name="alamat_asal" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Tujuan Pindah</label>
+          <input type="text" class="form-control" name="tujuan_pindah" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Tanggal Pindah</label>
+          <input type="date" class="form-control" name="tanggal_pindah" required>
+        </div>
+        <button type="submit" class="btn btn-warning">Laporkan</button>
+      </form>
+    </div>
+
+    <!-- Tamu Menginap -->
+    <div class="mb-5">
+      <h4>Tamu / Orang Luar Menginap</h4>
+      <form action="https://formspree.io/f/xwpbrern" method="POST">
+        <div class="mb-3">
+          <label class="form-label">Nama Tamu</label>
+          <input type="text" class="form-control" name="nama_tamu" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Asal Daerah</label>
+          <input type="text" class="form-control" name="asal_tamu" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Tanggal Datang</label>
+          <input type="date" class="form-control" name="tanggal_tamu" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Lama Menginap (hari)</label>
+          <input type="number" class="form-control" name="lama_tamu" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Alamat Rumah yang Dikunjungi</label>
+          <input type="text" class="form-control" name="alamat_tujuan" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Nama Warga yang Dituju</label>
+          <input type="text" class="form-control" name="warga_tujuan" required>
+        </div>
+        <button type="submit" class="btn btn-success">Laporkan Tamu</button>
+      </form>
+    </div>
+  </div>
+</section>
           <li class="nav-item"><a class="nav-link" href="#transparansi">Transparansi</a></li>
           <li class="nav-item"><a class="nav-link" href="#galeri">Galeri</a></li>
           <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
