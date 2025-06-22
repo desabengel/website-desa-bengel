@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -6,28 +5,77 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Desa Bengel</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/simplelightbox@2.14.1/dist/simple-lightbox.min.css" rel="stylesheet">
   <style>
-    body { font-family: 'Segoe UI', sans-serif; }
-    .hero { background-image: url('assets/hero-desa.jpg'); background-size: cover; background-position: center; height: 80vh; display: flex; align-items: center; justify-content: center; color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);}  
-    .section { padding: 60px 0; }
-    .icon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 20px; justify-items: center; }
-    .icon-grid i { font-size: 2rem; color: #0d6efd; }
-    /* WhatsApp Floating Button */
-    .whatsapp-float{ position:fixed; width:55px; height:55px; bottom:20px; right:20px; z-index:100; }
-    .whatsapp-float img{ width:100%; height:auto; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f8ff;
+    }
+    .hero {
+      background-image: url('assets/hero-desa.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+      position: relative;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-color: rgba(0, 0, 100, 0.3);
+      z-index: 1;
+    }
+    .hero .text-center {
+      position: relative;
+      z-index: 2;
+    }
+    .section {
+      padding: 70px 0;
+    }
+    .section h2 {
+      margin-bottom: 30px;
+      font-weight: 600;
+      color: #0d6efd;
+    }
+    .nav-link.dropdown-toggle::after {
+      margin-left: 5px;
+    }
+    footer {
+      background-color: #0d6efd;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
   </style>
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top shadow">
     <div class="container">
-      <a class="navbar-brand" href="#">Desa Bengel</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="assets/logo-desa.png" alt="Logo Desa" style="height:40px; margin-right:10px;">
+        Desa Bengel
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#profil">Profil</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#profil" id="profilDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Profil
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="profilDropdown">
+              <li><a class="dropdown-item" href="#sejarah">Sejarah</a></li>
+              <li><a class="dropdown-item" href="#visi">Visi dan Misi</a></li>
+              <li><a class="dropdown-item" href="#struktur">Struktur Organisasi</a></li>
+            </ul>
+          </li>
           <li class="nav-item"><a class="nav-link" href="#layanan">Layanan</a></li>
           <li class="nav-item"><a class="nav-link" href="#pengajuan">Pengajuan</a></li>
           <li class="nav-item"><a class="nav-link" href="#wajiblapor">Wajib Lapor</a></li>
@@ -40,94 +88,71 @@
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- Hero Section -->
   <section class="hero">
     <div class="text-center">
       <h1 class="display-4 fw-bold">Selamat Datang di Desa Bengel</h1>
-      <p class="lead">Website Resmi Pemerintah Desa Bengel</p>
+      <p class="lead">Website Resmi Pemerintah Desa Bengel, Kabupaten Kepulauan Talaud</p>
     </div>
   </section>
 
-  <!-- Profil -->
-  <section id="profil" class="section bg-light text-center">
+  <!-- Profil Sections -->
+  <section id="sejarah" class="section bg-light">
     <div class="container">
-      <h2>Profil Desa</h2>
-      <p>Desa Bengel adalah desa yang terletak di Kabupaten Kepulauan Talaud, dikenal dengan keindahan alam dan kearifan lokalnya.</p>
-      <h3 class="mt-5">Sejarah Desa</h3>
-      <p>Desa Bengel berdiri sejak zaman kolonial dan terus berkembang hingga kini.</p>
-      <h3 class="mt-5">Struktur Organisasi Pemerintah Desa</h3>
+      <h2>Sejarah Desa Bengel</h2>
+      <p>Desa Bengel berdiri sejak zaman kolonial dan berkembang menjadi desa mandiri dengan potensi pertanian, kelautan, dan budaya yang kuat.</p>
+    </div>
+  </section>
+
+  <section id="visi" class="section">
+    <div class="container">
+      <h2>Visi dan Misi</h2>
+      <h4>Visi:</h4>
+      <p>"Terwujudnya Desa Bengel yang maju, mandiri, sejahtera dan berbudaya berdasarkan semangat kebersamaan."</p>
+      <h4>Misi:</h4>
+      <ul>
+        <li>Meningkatkan pelayanan publik dan tata kelola pemerintahan desa.</li>
+        <li>Memajukan potensi ekonomi masyarakat desa melalui UMKM dan pertanian.</li>
+        <li>Melestarikan budaya lokal dan memperkuat nilai-nilai gotong royong.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="struktur" class="section bg-light">
+    <div class="container">
+      <h2>Struktur Organisasi Pemerintah Desa</h2>
       <div class="row justify-content-center">
-        <div class="col-md-4"><img src="assets/kepala-desa.jpg" class="img-fluid rounded mb-2" alt="Kepala Desa"><p><strong>Kepala Desa:</strong> Bapak John Doe</p></div>
-        <div class="col-md-4"><img src="assets/sekdes.jpg" class="img-fluid rounded mb-2" alt="Sekretaris Desa"><p><strong>Sekretaris Desa:</strong> Ibu Maria Talumepa</p></div>
-      </div>
-      <div class="row justify-content-center mt-4">
-        <div class="col-md-4"><img src="assets/kaur-pemerintahan.jpg" class="img-fluid rounded mb-2" alt="Kaur Pemerintahan"><p><strong>Kaur Pemerintahan:</strong> Bapak Yosephus Malonda</p></div>
-        <div class="col-md-4"><img src="assets/kaur-keuangan.jpg" class="img-fluid rounded mb-2" alt="Kaur Keuangan"><p><strong>Kaur Keuangan:</strong> Ibu Rachel Londa</p></div>
-        <div class="col-md-4"><img src="assets/kaur-umum.jpg" class="img-fluid rounded mb-2" alt="Kaur Umum"><p><strong>Kaur Umum:</strong> Bapak Daniel Karema</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Layanan -->
-  <section id="layanan" class="section text-center">
-    <div class="container">
-      <h2>Layanan Desa</h2>
-      <div class="icon-grid mt-4">
-        <div><i class="fas fa-id-card"></i><br>KTP</div>
-        <div><i class="fas fa-home"></i><br>Domisili</div>
-        <div><i class="fas fa-store"></i><br>Usaha</div>
-        <div><i class="fas fa-envelope"></i><br>Surat Pengantar</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pengajuan (Netlify Forms) -->
-  <section id="pengajuan" class="section bg-light">
-    <div class="container">
-      <h2 class="text-center mb-4">Pengajuan Online</h2>
-      <form name="pengajuan" method="POST" data-netlify="true" class="mx-auto" style="max-width:600px;">
-        <input type="hidden" name="form-name" value="pengajuan">
-        <div class="mb-3"><label class="form-label">Nama</label><input type="text" name="nama" class="form-control" required></div>
-        <div class="mb-3"><label class="form-label">Jenis Pengajuan</label>
-          <select name="jenis" class="form-select" required>
-            <option value="KTP">KTP</option>
-            <option value="Domisili">Domisili</option>
-            <option value="Usaha">SKU</option>
-          </select>
+        <div class="col-md-4 text-center mb-3">
+          <img src="assets/kepala-desa.jpg" class="img-fluid rounded-circle mb-2" alt="Kepala Desa">
+          <p><strong>Kepala Desa:</strong> John Doe</p>
         </div>
-        <div class="mb-3"><label class="form-label">Pesan</label><textarea name="pesan" class="form-control" rows="3"></textarea></div>
-        <button type="submit" class="btn btn-primary">Kirim</button>
-      </form>
+        <div class="col-md-4 text-center mb-3">
+          <img src="assets/sekdes.jpg" class="img-fluid rounded-circle mb-2" alt="Sekretaris Desa">
+          <p><strong>Sekretaris Desa:</strong> Maria Talumepa</p>
+        </div>
+        <div class="col-md-4 text-center mb-3">
+          <img src="assets/kaur-pemerintahan.jpg" class="img-fluid rounded-circle mb-2" alt="Kaur Pemerintahan">
+          <p><strong>Kaur Pemerintahan:</strong> Yosephus Malonda</p>
+        </div>
+        <div class="col-md-4 text-center mb-3">
+          <img src="assets/kaur-keuangan.jpg" class="img-fluid rounded-circle mb-2" alt="Kaur Keuangan">
+          <p><strong>Kaur Keuangan:</strong> Rachel Londa</p>
+        </div>
+        <div class="col-md-4 text-center mb-3">
+          <img src="assets/kaur-umum.jpg" class="img-fluid rounded-circle mb-2" alt="Kaur Umum">
+          <p><strong>Kaur Umum:</strong> Daniel Karema</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Wajib Lapor -->
-  <section id="wajiblapor" class="section text-center">
+  <!-- Footer -->
+  <footer>
     <div class="container">
-      <h2>Wajib Lapor Pendatang Baru</h2>
-      <form name="wajiblapor" method="POST" data-netlify="true" class="mx-auto" style="max-width:600px;">
-        <input type="hidden" name="form-name" value="wajiblapor">
-        <div class="mb-3"><label class="form-label">Nama</label><input type="text" name="nama" class="form-control" required></div>
-        <div class="mb-3"><label class="form-label">NIK</label><input type="text" name="nik" class="form-control" required></div>
-        <div class="mb-3"><label class="form-label">Tanggal Kedatangan</label><input type="date" name="tanggal" class="form-control" required></div>
-        <button type="submit" class="btn btn-primary">Kirim</button>
-      </form>
+      <p>&copy; 2025 Desa Bengel. Dibuat dengan 💙 oleh Tim Desa Digital.</p>
     </div>
-  </section>
+  </footer>
 
-  <!-- Transparansi -->
-  <section id="transparansi" class="section bg-light text-center">
-    <div class="container">
-      <h2>Transparansi Anggaran</h2>
-      <p>Pendapatan: Rp 1.200.000.000 | Belanja: Rp 1.150.000.000 | Silpa: Rp 50.000.000</p>
-      <canvas id="anggaranChart" width="300" height="200"></canvas>
-    </div>
-  </section>
-
-  <!-- Galeri -->
-  <section id="galeri" class="section text-center gallery">
-    <div class="container">
-      <h2>Galeri Kegiatan</h2>
-      <div class="row">
-        <div class="col-md-4 mb-3"><a href="assets/galeri1.jpg"><img src="assets/galeri1.jpg" class="img-fluid rounded"></a></div>
-        <div class="col-md-4 mb-3"><a href="assets/galeri2.jpg"><
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
