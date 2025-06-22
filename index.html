@@ -146,6 +146,30 @@
               <li><a class="dropdown-item" href="#">Pindah Datang / Keluar</a></li>
             </ul>
           </li>
+          <section id="pengajuan-domisili" class="section bg-light">
+  <div class="container">
+    <h2>Pengajuan Surat Keterangan Domisili</h2>
+    <form action="https://formspree.io/f/your-id" method="POST">
+      <div class="mb-3">
+        <label for="nama" class="form-label">Nama Lengkap</label>
+        <input type="text" class="form-control" id="nama" name="nama" required>
+      </div>
+      <div class="mb-3">
+        <label for="nik" class="form-label">NIK</label>
+        <input type="text" class="form-control" id="nik" name="nik" required>
+      </div>
+      <div class="mb-3">
+        <label for="alamat" class="form-label">Alamat Domisili</label>
+        <textarea class="form-control" id="alamat" name="alamat" rows="3" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="keperluan" class="form-label">Keperluan Surat</label>
+        <input type="text" class="form-control" id="keperluan" name="keperluan" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Kirim Pengajuan</button>
+    </form>
+  </div>
+</section>
           <li class="nav-item"><a class="nav-link" href="#wajiblapor">Wajib Lapor</a></li>
           <li class="nav-item"><a class="nav-link" href="#transparansi">Transparansi</a></li>
           <li class="nav-item"><a class="nav-link" href="#galeri">Galeri</a></li>
