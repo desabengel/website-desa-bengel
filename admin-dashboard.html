@@ -1,240 +1,47 @@
+<!-- admin-dashboard.html -->
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Desa Bengel</title>
+  <title>Admin Dashboard</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f0f8ff;
-    }
-    .hero {
-      background-image: url('assets/hero-desa.jpg');
-      background-size: cover;
-      background-position: center;
-      height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
-      position: relative;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background-color: rgba(0, 0, 100, 0.3);
-      z-index: 1;
-    }
-    .hero .text-center {
-      position: relative;
-      z-index: 2;
-    }
-    .section {
-      padding: 70px 0;
-    }
-    .section h2 {
-      margin-bottom: 30px;
-      font-weight: 600;
-      color: #0d6efd;
-    }
-    .nav-link.dropdown-toggle::after {
-      margin-left: 5px;
-    }
-    footer {
-      background-color: #0d6efd;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-    }
-  </style>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js"></script>
+  <script>
+    // Inisialisasi Firebase (sama dengan login.html)
+    const firebaseConfig = {
+      apiKey: "API_KEY_ANDA",
+      authDomain: "admin-4537d.firebaseapp.com",
+      projectId: "admin-4537d",
+      storageBucket: "admin-4537d.appspot.com",
+      messagingSenderId: "SENDER_ID",
+      appId: "APP_ID"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top shadow">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="assets/logo-talaud.png" alt="Logo Kabupaten Talaud" style="height:40px; margin-right:10px;">
-        Desa Bengel
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#profil" id="profilDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Profil
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="profilDropdown">
-              <li><a class="dropdown-item" href="#sejarah">Sejarah</a></li>
-              <li><a class="dropdown-item" href="#visi">Visi dan Misi</a></li>
-              <li><a class="dropdown-item" href="#struktur">Struktur Organisasi</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#layanan" id="layananDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Layanan
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="layananDropdown">
-              <li class="dropdown-submenu">
-                <a class="dropdown-item dropdown-toggle" href="#">Administrasi Kependudukan</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Surat Keterangan Domisili</a></li>
-                  <li><a class="dropdown-item" href="#">Surat Pengantar KTP</a></li>
-                  <li><a class="dropdown-item" href="#">Surat Pengantar KK</a></li>
-                  <li><a class="dropdown-item" href="#">Surat Keterangan Pindah Datang</a></li>
-                </ul>
-              </li>
-              <li class="dropdown-submenu">
-                <a class="dropdown-item dropdown-toggle" href="#">Surat Keterangan Umum</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Surat Keterangan Usaha</a></li>
-                  <li><a class="dropdown-item" href="#">Surat Keterangan Tidak Mampu (SKTM)</a></li>
-                  <li><a class="dropdown-item" href="#">Surat Keterangan Ahli Waris</a></li>
-                  <li><a class="dropdown-item" href="#">Surat Keterangan Tanah</a></li>
-                </ul>
-              </li>
-              <li class="dropdown-submenu">
-                <a class="dropdown-item dropdown-toggle" href="#">Layanan Pengaduan Masyarakat</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Form Pengaduan Online</a></li>
-                  <li><a class="dropdown-item" href="#">Kontak RT/RW atau Kepala Dusun</a></li>
-                </ul>
-              </li>
-              <li class="dropdown-submenu">
-                <a class="dropdown-item dropdown-toggle" href="#">Formulir Permohonan</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Formulir Permohonan Surat Keterangan</a></li>
-                  <li><a class="dropdown-item" href="#">Formulir Bantuan Sosial (Bansos)</a></li>
-                  <li><a class="dropdown-item" href="#">Formulir Izin Kegiatan/Warga</a></li>
-                </ul>
-              </li>
-              <li class="dropdown-submenu">
-                <a class="dropdown-item dropdown-toggle" href="#">Layanan Wajib Lapor</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Penduduk Baru Masuk</a></li>
-                  <li><a class="dropdown-item" href="#">Penduduk Keluar</a></li>
-                  <li><a class="dropdown-item" href="#">Tamu/Orang Luar yang Menginap</a></li>
-                </ul>
-              </li>
-              <li class="dropdown-submenu">
-                <a class="dropdown-item dropdown-toggle" href="#">Informasi Jadwal</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Jadwal Pelayanan Kantor Desa</a></li>
-                  <li><a class="dropdown-item" href="#">Jadwal Posyandu / Kegiatan Desa</a></li>
-                  <li><a class="dropdown-item" href="#">Jadwal Pembuatan Dokumen</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#pengajuan" id="pengajuanDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Pengajuan
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="pengajuanDropdown">
-              <li><a class="dropdown-item" href="#">Pengajuan Surat Domisili</a></li>
-              <li><a class="dropdown-item" href="#">Pengantar KTP / KK</a></li>
-              <li><a class="dropdown-item" href="#">SKTM (Tidak Mampu)</a></li>
-              <li><a class="dropdown-item" href="#">Surat Usaha</a></li>
-              <li><a class="dropdown-item" href="#">Bantuan Sosial (Bansos)</a></li>
-              <li><a class="dropdown-item" href="#">Izin Keramaian / Warga</a></li>
-              <li><a class="dropdown-item" href="#">Pindah Datang / Keluar</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="#wajiblapor">Wajib Lapor</a></li>
-          <li class="nav-item"><a class="nav-link" href="#transparansi">Transparansi</a></li>
-          <li class="nav-item"><a class="nav-link" href="#galeri">Galeri</a></li>
-          <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
-          <li class="nav-item"><a class="nav-link" href="/admin/">Edit Data</a></li>
-        </ul>
-      </div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Admin Dashboard</a>
+      <button class="btn btn-outline-light ms-auto" id="logoutBtn">Logout</button>
     </div>
   </nav>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="text-center">
-      <h1 class="display-4 fw-bold">Selamat Datang di Desa Bengel</h1>
-      <p class="lead">Website Resmi Pemerintah Desa Bengel, Kabupaten Kepulauan Talaud</p>
-    </div>
-  </section>
-
-  <!-- Profil Sections -->
-  <section id="sejarah" class="section bg-light">
-    <div class="container">
-      <h2>Sejarah Desa Bengel</h2>
-      <p>Desa Bengel berdiri sejak zaman kolonial dan berkembang menjadi desa mandiri dengan potensi pertanian, kelautan, dan budaya yang kuat.</p>
-    </div>
-  </section>
-
-  <section id="visi" class="section">
-    <div class="container">
-      <h2>Visi dan Misi</h2>
-      <h4>Visi:</h4>
-      <p>"Terwujudnya Desa Bengel yang maju, mandiri, sejahtera dan berbudaya berdasarkan semangat kebersamaan."</p>
-      <h4>Misi:</h4>
-      <ul>
-        <li>Meningkatkan pelayanan publik dan tata kelola pemerintahan desa.</li>
-        <li>Memajukan potensi ekonomi masyarakat desa melalui UMKM dan pertanian.</li>
-        <li>Melestarikan budaya lokal dan memperkuat nilai-nilai gotong royong.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="struktur" class="section bg-light">
-    <div class="container">
-      <h2>Struktur Organisasi Pemerintah Desa Bengel</h2>
-      <div class="row justify-content-center">
-        <div class="col-md-4 text-center mb-3">
-          <img src="assets/kepala-desa.jpg" class="img-fluid rounded-circle mb-2" alt="Kepala Desa">
-          <p><strong>Kepala Desa:</strong> Karep Peki Atibi</p>
-        </div>
-        <div class="col-md-4 text-center mb-3">
-          <img src="assets/sekdes.jpg" class="img-fluid rounded-circle mb-2" alt="Sekretaris Desa">
-          <p><strong>Sekretaris Desa:</strong> Oktavini Udang, M.Kom</p>
-        </div>
-        <div class="col-md-4 text-center mb-3">
-          <img src="assets/kaur-perencanaan.jpg" class="img-fluid rounded-circle mb-2" alt="Kaur Perencanaan">
-          <p><strong>Kaur Perencanaan:</strong> David Palense</p>
-        </div>
-        <div class="col-md-4 text-center mb-3">
-          <img src="assets/kaur-keuangan.jpg" class="img-fluid rounded-circle mb-2" alt="Kaur Keuangan">
-          <p><strong>Kaur Keuangan:</strong> Meike Palense, S.Pd</p>
-        </div>
-        <div class="col-md-4 text-center mb-3">
-          <img src="assets/kaur-umum.jpg" class="img-fluid rounded-circle mb-2" alt="Kaur Umum">
-          <p><strong>Kaur Umum:</strong> Mei Laleda</p>
-        </div>
-         <div class="col-md-4 text-center mb-3">
-          <img src="assets/kasie Kesejahteraan.jpg" class="img-fluid rounded-circle mb-2" alt="Kasie Kesejahteraan">
-          <p><strong>Kasie Kesejahteraan:</strong> Ridwan Laleda</p>
-        </div>
-         <div class="col-md-4 text-center mb-3">
-          <img src="assets/Kepala Dusun I.jpg" class="img-fluid rounded-circle mb-2" alt="Kepala Dusun I">
-          <p><strong>Kepala Dusun I :</strong> Sony Matimbang</p>
-        </div>
-         <div class="col-md-4 text-center mb-3">
-          <img src="assets/Kepala Dusun II.jpg" class="img-fluid rounded-circle mb-2" alt="Kepala Dusun II">
-          <p><strong>Kepala Dusun II :</strong> Fitria Tine</p>
-        </div>
-         <div class="col-md-4 text-center mb-3">
-          <img src="assets/Kepala Dusun III.jpg" class="img-fluid rounded-circle mb-2" alt="Kepala Dusun III">
-          <p><strong>Kepala Dusun III :</strong> Ferdi Wangke</p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Desa Bengel. Dibuat dengan ❤️ oleh Tim Desa Digital.</p>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <div class="container mt-5">
+    <h2>Selamat Datang, Admin!</h2>
+    <p>Gunakan menu navigasi untuk mengelola konten.</p>
+    <!-- Tambahkan links ke halaman edit konten atau CMS di sini -->
+  </div>
+  <script>
+    const auth = firebase.auth();
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      auth.signOut().then(() => window.location.href = 'login.html');
+    });
+    // Proteksi halaman: redirect ke login jika tidak ada user
+    auth.onAuthStateChanged(user => {
+      if (!user) window.location.href = 'login.html';
+    });
+  </script>
 </body>
 </html>
