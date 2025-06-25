@@ -16,76 +16,87 @@
       background-color: #f9f9f9;
       color: #333;
     }
-    header {
-      background-color: #006400;
+    header.top-bar {
+      background-color: #d71920;
       color: #fff;
-      padding: 1rem;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 2rem;
     }
-    nav {
-      background-color: #228B22;
+    header.top-bar .logo {
+      display: flex;
+      align-items: center;
+    }
+    header.top-bar .logo img {
+      height: 50px;
+      margin-right: 10px;
+    }
+    header.top-bar .search-login {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .search-box {
+      background: white;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      padding: 2px 6px;
+    }
+    .search-box input {
+      border: none;
+      outline: none;
+      padding: 6px;
+    }
+    .search-box button {
+      background: none;
+      border: none;
+      color: #d71920;
+      font-size: 1rem;
+    }
+    nav.navbar {
+      background-color: #fff;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
+      padding: 0.5rem;
     }
-    nav a {
-      color: white;
-      padding: 1rem;
+    nav.navbar ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    nav.navbar li {
+      position: relative;
+    }
+    nav.navbar a {
       text-decoration: none;
+      color: #333;
+      font-weight: bold;
     }
-    nav a:hover {
-      background-color: #006400;
+    nav.navbar li:hover > ul {
+      display: block;
+    }
+    nav.navbar ul ul {
+      display: none;
+      position: absolute;
+      background: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      top: 100%;
+      left: 0;
+      padding: 0.5rem;
+      z-index: 100;
+    }
+    nav.navbar ul ul li {
+      padding: 0.3rem 0;
     }
     .slider {
-      background: url('https://via.placeholder.com/1200x300?text=Banner+Desa') no-repeat center center/cover;
-      height: 300px;
-    }
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 2rem;
-      gap: 2rem;
-    }
-    .content {
-      flex: 2;
-    }
-    .sidebar {
-      flex: 1;
-      background-color: #fff;
-      padding: 1rem;
-      border: 1px solid #ddd;
-    }
-    article {
-      background-color: #fff;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ddd;
-    }
-    .galeri {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .galeri img {
-      width: calc(33% - 1rem);
-      height: auto;
-      border: 1px solid #ccc;
-    }
-    .form-section {
-      background: #fff;
-      padding: 1rem;
-      border: 1px solid #ccc;
-      margin-top: 2rem;
-    }
-    .form-section h3 {
-      margin-bottom: 1rem;
-    }
-    .form-section form {
-      display: flex;
-      flex-direction: column;
-    }
-    .form-section label, .form-section input, .form-section textarea, .form-section button {
-      margin-bottom: 1rem;
+      background: url('https://via.placeholder.com/1200x400/ed1c24/ffffff?text=PEMERINTAH+DESA+JOHOREJO+KECAMATAN+GEMUH+KABUPATEN+KENDAL') no-repeat center center/cover;
+      height: 400px;
     }
     footer {
       background-color: #006400;
@@ -94,99 +105,65 @@
       padding: 1rem;
       margin-top: 2rem;
     }
-    .wa-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25D366;
-      color: white;
-      padding: 0.8rem 1rem;
-      border-radius: 50px;
-      font-size: 1rem;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-    .wa-button i {
-      margin-right: 0.5rem;
-    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Website Resmi Desa Johorejo</h1>
-    <p>Kecamatan Gemuh, Kabupaten Kendal</p>
+  <header class="top-bar">
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Lambang_Kabupaten_Kendal.png/800px-Lambang_Kabupaten_Kendal.png" alt="Logo Desa">
+      <div>
+        <h1>Johorejo</h1>
+        <p>Kec. Gemuh , Kab. Kendal</p>
+      </div>
+    </div>
+    <div class="search-login">
+      <i class="fa fa-sign-in-alt"></i>
+      <div class="search-box">
+        <input type="text" placeholder="Search">
+        <button><i class="fa fa-search"></i></button>
+      </div>
+    </div>
   </header>
 
-  <nav>
-    <a href="#">Beranda</a>
-    <a href="#">Profil Desa</a>
-    <a href="#">Pemerintahan</a>
-    <a href="#">Data Desa</a>
-    <a href="#">Galeri</a>
-    <a href="#">Layanan</a>
-    <a href="#">Kontak</a>
+  <nav class="navbar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Profil</a>
+        <ul>
+          <li><a href="#">Visi & Misi</a></li>
+          <li><a href="#">Sejarah Desa</a></li>
+          <li><a href="#">Struktur Organisasi</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Data</a>
+        <ul>
+          <li><a href="#">Penduduk</a></li>
+          <li><a href="#">Pendidikan</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Kabar</a>
+        <ul>
+          <li><a href="#">Berita</a></li>
+          <li><a href="#">Pengumuman</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Potensi</a></li>
+      <li><a href="#">PPID</a>
+        <ul>
+          <li><a href="#">Dokumen</a></li>
+          <li><a href="#">Laporan</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Badan Usaha</a></li>
+      <li><a href="#">Wisata</a></li>
+      <li><a href="#">Pelayanan</a></li>
+    </ul>
   </nav>
 
   <div class="slider"></div>
 
-  <div class="container">
-    <div class="content">
-      <article>
-        <h2>Judul Berita 1</h2>
-        <p>Berita terbaru tentang kegiatan desa.</p>
-      </article>
-      <article>
-        <h2>Judul Berita 2</h2>
-        <p>Informasi pengumuman penting bagi warga desa.</p>
-      </article>
-
-      <section class="galeri">
-        <img src="https://via.placeholder.com/300x200?text=Kegiatan+1" alt="Galeri 1">
-        <img src="https://via.placeholder.com/300x200?text=Kegiatan+2" alt="Galeri 2">
-        <img src="https://via.placeholder.com/300x200?text=Kegiatan+3" alt="Galeri 3">
-      </section>
-
-      <section class="form-section">
-        <h3>Formulir Wajib Lapor Penduduk</h3>
-        <form action="https://formspree.io/f/xpzvjypr" method="POST">
-          <label for="nama">Nama Lengkap</label>
-          <input type="text" name="nama" id="nama" required>
-
-          <label for="alamat">Alamat Asal</label>
-          <input type="text" name="alamat" id="alamat" required>
-
-          <label for="pesan">Keterangan Tambahan</label>
-          <textarea name="pesan" id="pesan" rows="4"></textarea>
-
-          <button type="submit">Kirim Laporan</button>
-        </form>
-      </section>
-    </div>
-
-    <aside class="sidebar">
-      <h3>Informasi Kontak</h3>
-      <ul>
-        <li><i class="fa fa-phone"></i> 0812-3456-7890</li>
-        <li><i class="fa fa-envelope"></i> info@johorejo.desa.id</li>
-        <li><i class="fa fa-map-marker"></i> Johorejo, Kendal</li>
-      </ul>
-      <hr>
-      <h3>Agenda Desa</h3>
-      <ul>
-        <li>Musyawarah Rencana Pembangunan</li>
-        <li>Pembagian BLT Tahap 2</li>
-      </ul>
-    </aside>
-  </div>
-
   <footer>
     <p>&copy; 2025 Pemerintah Desa Johorejo. All rights reserved.</p>
   </footer>
-
-  <a href="https://wa.me/6281234567890" class="wa-button" target="_blank">
-    <i class="fab fa-whatsapp"></i> Hubungi Admin
-  </a>
 </body>
 </html>
