@@ -3,158 +3,238 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Desa Johorejo</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Desa Bengel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    * {margin: 0;padding: 0;box-sizing: border-box;}
-    body {font-family: Arial, sans-serif;background-color: #f9f9f9;color: #333;}
-    header.top-bar {background-color: #d71920;color: #fff;display: flex;align-items: center;justify-content: space-between;padding: 0.5rem 2rem;}
-    .logo {display: flex;align-items: center;}
-    .logo img {height: 50px;margin-right: 10px;}
-    .search-login {display: flex;align-items: center;gap: 1rem;}
-    .search-box {background: white;border-radius: 3px;display: flex;align-items: center;padding: 2px 6px;}
-    .search-box input {border: none;outline: none;padding: 6px;}
-    .search-box button {background: none;border: none;color: #d71920;font-size: 1rem;}
-    nav.navbar {background-color: #fff;border-top: 1px solid #ddd;border-bottom: 1px solid #ddd;display: flex;justify-content: center;flex-wrap: wrap;padding: 0.5rem;}
-    nav.navbar ul {list-style: none;display: flex;flex-wrap: wrap;gap: 1.5rem;}
-    nav.navbar li {position: relative;}
-    nav.navbar a {text-decoration: none;color: #333;font-weight: bold;}
-    nav.navbar li:hover > ul {display: block;}
-    nav.navbar ul ul {display: none;position: absolute;background: white;box-shadow: 0 2px 6px rgba(0,0,0,0.1);top: 100%;left: 0;padding: 0.5rem;z-index: 100;}
-    nav.navbar ul ul li {padding: 0.3rem 0;}
-    .slider {background: url('https://via.placeholder.com/1200x400/ed1c24/ffffff?text=PEMERINTAH+DESA+JOHOREJO+KECAMATAN+GEMUH+KABUPATEN+KENDAL') no-repeat center center/cover;height: 400px;}
-    .content-section {padding: 2rem;}
-    .content-section h2 {margin-bottom: 1rem;}
-    .content-section p, .content-section ul {margin-bottom: 1rem;}
-    .gallery {display: flex;flex-wrap: wrap;gap: 1rem;}
-    .gallery img {width: calc(33% - 1rem);height: auto;}
-    form {display: flex;flex-direction: column;gap: 1rem;max-width: 500px;}
-    input, textarea, button {padding: 0.5rem;border: 1px solid #ccc;}
-    button {background: #d71920;color: white;border: none;cursor: pointer;}
-    footer {background-color: #006400;color: white;text-align: center;padding: 1rem;margin-top: 2rem;}
-    .wa-button {position: fixed;bottom: 20px;right: 20px;background: #25D366;color: white;padding: 0.8rem 1rem;border-radius: 50px;font-size: 1rem;text-decoration: none;display: flex;align-items: center;box-shadow: 0 2px 6px rgba(0,0,0,0.2);}
-    .wa-button i {margin-right: 0.5rem;}
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f8ff;
+    }
+    .hero {
+      background-image: url('assets/hero-desa.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+      position: relative;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-color: rgba(0, 0, 100, 0.3);
+      z-index: 1;
+    }
+    .hero .text-center {
+      position: relative;
+      z-index: 2;
+    }
+    .section {
+      padding: 70px 0;
+    }
+    .section h2 {
+      margin-bottom: 30px;
+      font-weight: 600;
+      color: #0d6efd;
+    }
+    .nav-link.dropdown-toggle::after {
+      margin-left: 5px;
+    }
+    footer {
+      background-color: #0d6efd;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
   </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <header class="top-bar">
-    <div class="logo">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Lambang_Kabupaten_Kendal.png/800px-Lambang_Kabupaten_Kendal.png" alt="Logo Desa">
-      <div>
-        <h1>Johorejo</h1>
-        <p>Kec. Gemuh , Kab. Kendal</p>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top shadow">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="assets/logo-talaud.png" alt="Logo Kabupaten Talaud" style="height:40px; margin-right:10px;">
+        Desa Bengel
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#profil" id="profilDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Profil
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="profilDropdown">
+              <li><a class="dropdown-item" href="#sejarah">Sejarah</a></li>
+              <li><a class="dropdown-item" href="#visi">Visi dan Misi</a></li>
+              <li><a class="dropdown-item" href="#struktur">Struktur Organisasi</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#layanan" id="layananDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Layanan
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="layananDropdown">
+              <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Administrasi Kependudukan</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Surat Keterangan Domisili</a></li>
+                  <li><a class="dropdown-item" href="#">Surat Pengantar KTP</a></li>
+                  <li><a class="dropdown-item" href="#">Surat Pengantar KK</a></li>
+                  <li><a class="dropdown-item" href="#">Surat Keterangan Pindah Datang</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Surat Keterangan Umum</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Surat Keterangan Usaha</a></li>
+                  <li><a class="dropdown-item" href="#">Surat Keterangan Tidak Mampu (SKTM)</a></li>
+                  <li><a class="dropdown-item" href="#">Surat Keterangan Ahli Waris</a></li>
+                  <li><a class="dropdown-item" href="#">Surat Keterangan Tanah</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Layanan Pengaduan Masyarakat</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Form Pengaduan Online</a></li>
+                  <li><a class="dropdown-item" href="#">Kontak RT/RW atau Kepala Dusun</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Formulir Permohonan</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Formulir Permohonan Surat Keterangan</a></li>
+                  <li><a class="dropdown-item" href="#">Formulir Bantuan Sosial (Bansos)</a></li>
+                  <li><a class="dropdown-item" href="#">Formulir Izin Kegiatan/Warga</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Layanan Wajib Lapor</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Penduduk Baru Masuk</a></li>
+                  <li><a class="dropdown-item" href="#">Penduduk Keluar</a></li>
+                  <li><a class="dropdown-item" href="#">Tamu/Orang Luar yang Menginap</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">Informasi Jadwal</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Jadwal Pelayanan Kantor Desa</a></li>
+                  <li><a class="dropdown-item" href="#">Jadwal Posyandu / Kegiatan Desa</a></li>
+                  <li><a class="dropdown-item" href="#">Jadwal Pembuatan Dokumen</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+           <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#pengajuan" id="pengajuanDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Pengajuan
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="pengajuanDropdown">
+              <li><a class="dropdown-item" href="#">Pengajuan Surat Domisili</a></li>
+              <li><a class="dropdown-item" href="#">Pengantar KTP / KK</a></li>
+              <li><a class="dropdown-item" href="#">SKTM (Tidak Mampu)</a></li>
+              <li><a class="dropdown-item" href="#">Surat Usaha</a></li>
+              <li><a class="dropdown-item" href="#">Bantuan Sosial (Bansos)</a></li>
+              <li><a class="dropdown-item" href="#">Izin Keramaian / Warga</a></li>
+              <li><a class="dropdown-item" href="#">Pindah Datang / Keluar</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#wajiblapor">Wajib Lapor</a></li>
+          <li class="nav-item"><a class="nav-link" href="#transparansi">Transparansi</a></li>
+          <li class="nav-item"><a class="nav-link" href="#galeri">Galeri</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+          <li class="nav-item"><a class="nav-link" href="/admin/">Edit Data</a></li>
+        </ul>
       </div>
     </div>
-    <div class="search-login">
-      <i class="fa fa-sign-in-alt"></i>
-      <div class="search-box">
-        <input type="text" placeholder="Search">
-        <button><i class="fa fa-search"></i></button>
-      </div>
-    </div>
-  </header>
-
-  <nav class="navbar">
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Profil</a>
-        <ul>
-          <li><a href="#">Sejarah Desa</a></li>
-          <li><a href="#">Visi & Misi</a></li>
-          <li><a href="#">Struktur Organisasi</a></li>
-          <li><a href="#">Lembaga Desa</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Data</a>
-        <ul>
-          <li><a href="#">Data Kependudukan</a></li>
-          <li><a href="#">Pendidikan</a></li>
-          <li><a href="#">Kesehatan</a></li>
-          <li><a href="#">Ekonomi</a></li>
-          <li><a href="#">Keamanan</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Kabar</a>
-        <ul>
-          <li><a href="#">Berita</a></li>
-          <li><a href="#">Artikel</a></li>
-          <li><a href="#">Pengumuman</a></li>
-          <li><a href="#">Agenda</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Potensi</a>
-        <ul>
-          <li><a href="#">Potensi Unggulan</a></li>
-          <li><a href="#">Produk Unggulan</a></li>
-          <li><a href="#">UMKM</a></li>
-          <li><a href="#">Sumber Daya Alam</a></li>
-        </ul>
-      </li>
-      <li><a href="#">PPID</a>
-        <ul>
-          <li><a href="#">Informasi Berkala</a></li>
-          <li><a href="#">Serta Merta</a></li>
-          <li><a href="#">Setiap Saat</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Badan Usaha</a>
-        <ul>
-          <li><a href="#">BUMDes</a></li>
-          <li><a href="#">Koperasi</a></li>
-          <li><a href="#">Unit Usaha</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Wisata</a>
-        <ul>
-          <li><a href="#">Wisata Alam</a></li>
-          <li><a href="#">Wisata Budaya</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Pelayanan</a>
-        <ul>
-          <li><a href="#">Pelayanan Publik</a></li>
-          <li><a href="#">Pengajuan Surat</a></li>
-          <li><a href="#">Wajib Lapor</a></li>
-        </ul>
-      </li>
-    </ul>
   </nav>
 
-  <div class="slider"></div>
-
-  <section class="content-section">
-    <h2>Berita Terbaru</h2>
-    <p>Desa Johorejo mengadakan kegiatan gotong royong dalam rangka persiapan HUT RI ke-80.</p>
-
-    <h2>Galeri Kegiatan</h2>
-    <div class="gallery">
-      <img src="https://via.placeholder.com/300x200?text=Kegiatan+1" alt="Galeri 1">
-      <img src="https://via.placeholder.com/300x200?text=Kegiatan+2" alt="Galeri 2">
-      <img src="https://via.placeholder.com/300x200?text=Kegiatan+3" alt="Galeri 3">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="text-center">
+      <h1 class="display-4 fw-bold">Selamat Datang di Desa Bengel</h1>
+      <p class="lead">Website Resmi Pemerintah Desa Bengel, Kabupaten Kepulauan Talaud</p>
     </div>
-
-    <h2>Formulir Wajib Lapor Penduduk</h2>
-    <form action="https://formspree.io/f/xpzvjypr" method="POST">
-      <input type="text" name="nama" placeholder="Nama Lengkap" required>
-      <input type="text" name="alamat" placeholder="Alamat Asal" required>
-      <textarea name="pesan" rows="4" placeholder="Keterangan Tambahan"></textarea>
-      <button type="submit">Kirim</button>
-    </form>
-
-    <h2>Login Admin</h2>
-    <form onsubmit="return alert('Login hanya simulasi. Fitur belum aktif.');">
-      <input type="text" placeholder="Username" required>
-      <input type="password" placeholder="Password" required>
-      <button type="submit">Login</button>
-    </form>
   </section>
 
+  <!-- Profil Sections -->
+  <section id="sejarah" class="section bg-light">
+    <div class="container">
+      <h2>Sejarah Desa Bengel</h2>
+      <p>Desa Bengel berdiri sejak zaman kolonial dan berkembang menjadi desa mandiri dengan potensi pertanian, kelautan, dan budaya yang kuat.</p>
+    </div>
+  </section>
+
+  <section id="visi" class="section">
+    <div class="container">
+      <h2>Visi dan Misi</h2>
+      <h4>Visi:</h4>
+      <p>"Terwujudnya Desa Bengel yang maju, mandiri, sejahtera dan berbudaya berdasarkan semangat kebersamaan."</p>
+      <h4>Misi:</h4>
+      <ul>
+        <li>Meningkatkan pelayanan publik dan tata kelola pemerintahan desa.</li>
+        <li>Memajukan potensi ekonomi masyarakat desa melalui UMKM dan pertanian.</li>
+        <li>Melestarikan budaya lokal dan memperkuat nilai-nilai gotong royong.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="struktur" class="section bg-light">
+    <div class="container">
+      <h2>Struktur Organisasi Pemerintah Desa Bengel</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-4 text-center mb-3">
+          <img src="assets/kepala-desa.jpg" class="img-fluid rounded-circle mb-2" alt="Kepala Desa">
+          <p><strong>Kepala Desa:</strong> Karep Peki Atibi</p>
+        </div>
+        <div class="col-md-4 text-center mb-3">
+          <img src="assets/sekdes.jpg" class="img-fluid rounded-circle mb-2" alt="Sekretaris Desa">
+          <p><strong>Sekretaris Desa:</strong> Oktavini Udang, M.Kom</p>
+        </div>
+        <div class="col-md-4 text-center mb-3">
+          <img src="assets/kaur-perencanaan.jpg" class="img-fluid rounded-circle mb-2" alt="Kaur Perencanaan">
+          <p><strong>Kaur Perencanaan:</strong> David Palense</p>
+        </div>
+        <div class="col-md-4 text-center mb-3">
+          <img src="assets/kaur-keuangan.jpg" class="img-fluid rounded-circle mb-2" alt="Kaur Keuangan">
+          <p><strong>Kaur Keuangan:</strong> Meike Palense, S.Pd</p>
+        </div>
+        <div class="col-md-4 text-center mb-3">
+          <img src="assets/kaur-umum.jpg" class="img-fluid rounded-circle mb-2" alt="Kaur Umum">
+          <p><strong>Kaur Umum:</strong> Mei Laleda</p>
+        </div>
+         <div class="col-md-4 text-center mb-3">
+          <img src="assets/kasie Kesejahteraan.jpg" class="img-fluid rounded-circle mb-2" alt="Kasie Kesejahteraan">
+          <p><strong>Kasie Kesejahteraan:</strong> Ridwan Laleda</p>
+        </div>
+         <div class="col-md-4 text-center mb-3">
+          <img src="assets/Kepala Dusun I.jpg" class="img-fluid rounded-circle mb-2" alt="Kepala Dusun I">
+          <p><strong>Kepala Dusun I :</strong> Sony Matimbang</p>
+        </div>
+         <div class="col-md-4 text-center mb-3">
+          <img src="assets/Kepala Dusun II.jpg" class="img-fluid rounded-circle mb-2" alt="Kepala Dusun II">
+          <p><strong>Kepala Dusun II :</strong> Fitria Tine</p>
+        </div>
+         <div class="col-md-4 text-center mb-3">
+          <img src="assets/Kepala Dusun III.jpg" class="img-fluid rounded-circle mb-2" alt="Kepala Dusun III">
+          <p><strong>Kepala Dusun III :</strong> Ferdi Wangke</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Pemerintah Desa Johorejo. All rights reserved.</p>
+    <div class="container">
+      <p>&copy; 2025 Desa Bengel. Dibuat dengan ❤️ oleh Tim Desa Digital.</p>
+    </div>
   </footer>
 
-  <a href="https://wa.me/6281234567890" class="wa-button" target="_blank">
-    <i class="fab fa-whatsapp"></i> Hubungi Admin
-  </a>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
